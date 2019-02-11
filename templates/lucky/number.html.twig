@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Responsive Resume</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<!--Custom fonts. To improve load times, remove this and update the h1 styling in style.css--> 
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,700' rel='stylesheet' type='text/css'>
+	<!-- stylesheets -->
+	<link rel="stylesheet" href="{{ asset('style.css') }}" type="text/css" />
+	<!-- favicon -->
+	<link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
+	
+
+
+
+
+
+	
+	<!-- just in case viewer is using Internet Explorer -->
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+</head>
+
+<body>
+	
+	<!-- Header-->
+	<header>
+		<h1>Olivier Pouchoy</h1>
+		<p>Etudiant en Multimédia et Internet</p>
+	</header>
+	
+
+	<div class="container">
+		
+		<p class="flotte">
+		
+		<div class="image">
+				<img src="img/Olivier_icone" height = "400" width =" 400" >
+
+</div>
+		
+		
+
+
+  
+      
+		<!-- Introduction-->
+		<section class="center">
+			<h1>Bienvenue sur mon CV !</h1>
+					{% for apropo in apropos %}
+        			<article>
+						<p>{{ apropo.getDescription() }}</p>
+					</article>
+    				{% endfor %}
+			</p>
+		</section>
+		
+		
+	
+	
+		<span class ="hr"></span>
+	
+	
+	<!-- New container-->
+	<div class="container">
+		
+		
+	
+	   <section> 
+			<div class="sectionTitle">
+				<h1>Formations</h1>
+			</div>
+			<div class="sectionContent">
+			<div class="col-md-10 col-sm-9 col-xs-12">
+    			<ul>
+    				{% for formation in formations %}
+        			<article>
+						<h2> <b> {{ formation.getName() }}</b> </h2>
+						<p> {{ formation.getDuree() }} </p>
+						<p>{{ formation.getLieu() }}</p>
+					</article>
+    				{% endfor %}
+    			</ul>
+			</div>	
+			</div>
+			<div class="clear"></div>
+		</section>
+		<hr>
+			
+		<!--Experience Tables-->
+		 
+			<div class="sectionTitle">
+				<h1>Compétences</h1>
+			</div>
+		
+			
+		<section class="experience">
+			<div class="row">
+				<div class="grid-2">
+			    	 <h2> <b>Audiovisuel</b></h2>
+				</div>
+				<div class="grid-4">
+							{% for competence in competences %}
+						<article>
+						<ul>
+							<li> {{ competence.getAudiovisuel() }}</li>
+						</article>
+					{% endfor %}
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="grid-2">
+					<h2><b>Infographie</b></h2>
+				</div>
+				<div class="grid-4">
+						{% for competence in competences %}
+						<article>
+						<ul>
+							<li> {{ competence.getInfographie() }}</li>
+						</ul>
+						</article>
+					{% endfor %}
+				</div>
+			</div>
+			<div class="row">
+				<div class="grid-2">
+					<h2><b>Communication</b></h2>
+				</div>
+				<div class="grid-4">
+					{% for competence in competences %}
+						<article>
+						<ul>
+							<li>{{ competence.getCommunication() }}</li>
+						</ul>
+						</article>
+					{% endfor %}
+				</div>
+			</div>
+		</section>
+		
+		<hr>
+		
+		<section>
+			<!--List of skills-->
+			<div class="row">
+				<div class="grid-2">
+					<h1><b>Contact</b></h1>
+					<ul>
+						{% for contact in contacts %}
+						<article>
+						<ul>
+							<li><b>Email</b>  {{ contact.getMail() }}</li>
+							<li><b>Téléphone</b>  {{contact.getTelephone() }}</li>
+							<li><b>Site Portfolio</b>  {{ contact.getSite() }}</li>
+						</ul>
+						</article>
+					{% endfor %}
+	
+		<!--Footer-->
+		<footer class="center">
+			<hr>
+			<span>&copy; Olivier Pouchoy 2019</span>
+		</footer>
+		
+	</div><!-- End Container -->
+	
+</body>
+</html>
