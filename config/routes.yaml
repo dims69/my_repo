@@ -11,18 +11,56 @@
 app_lucky_number:
     path: /
     controller: App\Controller\LuckyController::number
+    
+    
+    
 
-form_formation :
-    path :  /formation/create
+form_formation:
+    path: /formation/create
+    controller: App\Controller\FormationController::create
     
 form_formation_edit:
-    path :  /formation/edit/{id}
-    controller: App\Controller\formationController::edit
+    path: /formation/edit/{id}
+    controller: App\Controller\FormationController::edit
 
 valid_formation:
-    path :  /formation/edit/{id}
-    controller: App\Controller\formationController::edit
+    path: /formation/valid/
+    controller: App\Controller\FormationController::valid
+    
+form_formation_delete:
+    path: /formation/delete/{id}
+    controller: App\Controller\FormationController::delete
     
     
     
+form_competence:
+    path: /competence/create
+    controller: App\Controller\CompetenceController::create
     
+form_competence_edit:
+    path: /competence/edit/{id}
+    controller: App\Controller\CompetenceController::edit
+
+valid_competence:
+    path: /competence/valid/
+    controller: App\Controller\CompetenceController::valid
+    
+form_competence_delete:
+    path: /competence/delete/{id}
+    controller: App\Controller\CompetenceController::delete
+    
+
+
+
+
+form_contact:
+    path: /contact/create
+    controller: App\Controller\ContactController::create
+    
+form_contact_edit:
+    path: /contact/edit/{id}
+    controller: App\Controller\ContactController::edit
+
+valid_contact:
+    path: /contact/valid/
+    controller: App\Controller\ContactController::valid

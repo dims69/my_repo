@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title>Responsive Resume</title>
+	<title>Olivier Pouchoy</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<!--Custom fonts. To improve load times, remove this and update the h1 styling in style.css--> 
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,700' rel='stylesheet' type='text/css'>
 	<!-- stylesheets -->
 	<link rel="stylesheet" href="{{ asset('style.css') }}" type="text/css" />
 	<!-- favicon -->
-	<link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
+	<link rel="shortcut icon" href="{{asset('img/favicon.jpg')}}">
 	
 
 
@@ -51,13 +51,20 @@
 					{% for apropo in apropos %}
         			<article>
 						<p>{{ apropo.getDescription() }}</p>
+						{% if is_granted('ROLE_ADMIN') %}
+						<a href="{{ path('apropos_new',{'id':apropo.getId()}) }}" target="_blank"><button type="button">Créer</buttons></a>
+						<a href="{{ path('apropos_edit',{'id':apropo.getId()}) }}" target="_blank"><button type="button">Modifier</buttons></a>
+						<a href="{{ path('apropos_delete',{'id':apropo.getId()}) }}" target="_blank"><button type="button">Supprimer</buttons></a>
+					    <a href="{{ path('apropos_index',{'id':apropo.getId()}) }}" target="_blank"><button type="button">Index</buttons></a>
+						{% endif %}
+
+						
 					</article>
     				{% endfor %}
 			</p>
 		</section>
 		
 		
-	
 	
 		<span class ="hr"></span>
 	
@@ -74,13 +81,20 @@
 			<div class="sectionContent">
 			<div class="col-md-10 col-sm-9 col-xs-12">
     			<ul>
-    				{% for formation in formations %}
+    		{% for formation in formations %}
         			<article>
 						<h2> <b> {{ formation.getName() }}</b> </h2>
 						<p> {{ formation.getDuree() }} </p>
 						<p>{{ formation.getLieu() }}</p>
+						
+			    {% if is_granted('ROLE_ADMIN') %}
+						<a href="{{ path('formation_new',{'id':formation.getId()}) }}" target="_blank"><button type="button">Créer</buttons></a>
+						<a href="{{ path('formation_edit',{'id':formation.getId()}) }}" target="_blank"><button type="button">Modifier</buttons></a>
+						<a href="{{ path('form_formation_delete',{'id':formation.getId()}) }}" target="_blank"><button type="button">Supprimer</buttons></a>
+				{% endif %}
+					
 					</article>
-    				{% endfor %}
+    		{% endfor %}
     			</ul>
 			</div>	
 			</div>
@@ -133,6 +147,13 @@
 						<article>
 						<ul>
 							<li>{{ competence.getCommunication() }}</li>
+							
+							</br></br></br>
+					{% if is_granted('ROLE_ADMIN') %}
+						<a href="{{ path('competence_new',{'id':competence.getId()}) }}"target="_blank"><button type="button">Créer</a>
+						<a href="{{ path('competence_edit',{'id':competence.getId()}) }}" target="_blank"><button type="button">Modifier</buttons></a>
+						<a href="{{ path('form_competence_delete',{'id':competence.getId()}) }}" target="_blank"><button type="button">Supprimer</buttons></a>
+					{% endif %}
 						</ul>
 						</article>
 					{% endfor %}
@@ -154,6 +175,11 @@
 							<li><b>Email</b>  {{ contact.getMail() }}</li>
 							<li><b>Téléphone</b>  {{contact.getTelephone() }}</li>
 							<li><b>Site Portfolio</b>  {{ contact.getSite() }}</li>
+						  {% if is_granted('ROLE_ADMIN') %}
+								<a href="{{ path('form_contact',{'id':contact.getId()}) }}"target="_blank"><button type="button">Créer</a>
+								<a href="{{ path('contact_edit',{'id':contact.getId()}) }}" target="_blank"><button type="button">Modifier</buttons></a>
+								<a href="{{ path('form_contact_delete',{'id':contact.getId()}) }}" target="_blank"><button type="button">Supprimer</buttons></a>
+						  {% endif %}
 						</ul>
 						</article>
 					{% endfor %}

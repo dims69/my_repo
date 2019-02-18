@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+	<h1>Création de nouveaux contact</h1>
+	{{ form_start(form,  {'action': path('valid_contact'),'attr': {'novalidate': 'novalidate' } }) }} 
+	{{ form(form) }}
+	{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+	{{ form_widget(form) }}
+	{{ form_end(form) }}
+</html>

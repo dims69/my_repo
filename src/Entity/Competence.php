@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CompetenceRepository")
  */
@@ -18,16 +18,19 @@ class Competence
     private $id;
 
     /**
+     * @Assert\NotBlank
      * @ORM\Column(type="string", length=1000)
      */
     private $audiovisuel;
 
     /**
+     * @Assert\NotBlank
      * @ORM\Column(type="string", length=1000)
      */
     private $infographie;
 
     /**
+     * @Assert\NotBlank
      * @ORM\Column(type="string", length=1000)
      */
     private $communication;

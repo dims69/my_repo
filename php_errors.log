@@ -1,0 +1,3 @@
+[11-Feb-2019 21:48:27 UTC] PHP Fatal error:  Cannot redeclare App\Controller\FormationController::edit() in /home/ubuntu/workspace/my_cv/src/Controller/FormationController.php on line 48
+[12-Feb-2019 22:18:32 UTC] PHP Fatal error:  Cannot use Symfony\Component\Routing\Annotation\Route as Route because the name is already in use in /home/ubuntu/workspace/my_cv/src/Controller/CompetenceController.php on line 11
+[12-Feb-2019 22:20:19 UTC] PHP Fatal error:  Cannot use Symfony\Component\Routing\Annotation\Route as Route because the name is already in use in /home/ubuntu/workspace/my_cv/src/Controller/CompetenceController.php on line 11

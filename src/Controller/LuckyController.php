@@ -3,39 +3,11 @@
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
-
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
-
 use App\Entity\Formation;
-
 use App\Entity\Contact;
-
 use App\Entity\Apropos;
-
 use App\Entity\Competence;
-
-use App\Form\FormationType;
-
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
-
-class FormationController extends AbstractController
- 
-{
-    public function create()
-    {
-        $loisir = new Formation();
-        $form =$this->createForm(Formation::class, $formation);
-         
-        return $this-> render('formation/create.html.twig', [
-            'entity'=>$formation,
-            'form' => $form->createView(),
-            ]
-    );
-  }
-}
-
 
 class LuckyController extends Controller
 {
@@ -103,7 +75,7 @@ public function createApropos()
 
 {
     $form = new Apropos ();
-        $form -> setName('Apropos');
+ $form -> setName('Apropos');
     $form -> setName('description');
     $eManager = $this ->getDoctrine()->getManager();
     $eManager->persist($form);

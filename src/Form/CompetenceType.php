@@ -2,22 +2,22 @@
 
 namespace App\Form;
 
-use App\Entity\Formation;
+use App\Entity\Competence;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-class FormationType extends AbstractType
+class CompetenceType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('duree')
-            ->add('lieu')
-            ->add('enregistrer', SubmitType::class, [
-            'attr'=> ['class'=>'save'],
+            ->add('audiovisuel')
+            ->add('infographie')
+            ->add('communication')
+            ->add('save', SubmitType::class,[
+                'attr'=> ['class'=>'save'],
                 ])
         ;
     }
@@ -25,7 +25,7 @@ class FormationType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Formation::class,
+            'data_class' => Competence::class,
         ]);
     }
 }
