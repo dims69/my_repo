@@ -16,7 +16,7 @@ class CompetenceType extends AbstractType
             ->add('audiovisuel')
             ->add('infographie')
             ->add('communication')
-            ->add('save', SubmitType::class,[
+            ->add('save', SubmitType::class, [
                 'attr'=> ['class'=>'save'],
                 ])
         ;

@@ -9,21 +9,22 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Form\CompetenceType;
 use App\Entity\Competence;
 
-
 /**
  * @Route("//competence")
  */
 class CompetenceController extends AbstractController
 {
-     /**
-     * @Route("/new", name="competence_new", methods={"GET"})
-     */
+    /**
+    * @Route("/new", name="competence_new", methods={"GET"})
+    */
     public function new()
     {
         $competence = new Competence();
         $form = $this ->createForm(CompetenceType::class, $competence);
         
-        return $this -> render ('competence/create.html.twig', [
+        return $this -> render(
+            'competence/create.html.twig',
+            [
             'entity'=> $competence,
             'form' => $form->createView(),
             ]
@@ -33,13 +34,15 @@ class CompetenceController extends AbstractController
     /**
      * @Route("/{id}/edit", name="competence_edit", methods={"GET","POST"})
      */
-     public function edit3($id)
+    public function edit3($id)
     {
         $entityManager = $this->getDoctrine()->getManager();
         $competences = $entityManager->getRepository(Competence::class)->findOneBy(['id' => $id]);
         $form = $this->createForm(CompetenceType::class, $competences);
         
-        return $this->render('competence/create.html.twig', [
+        return $this->render(
+            'competence/create.html.twig',
+            [
             'entity' => $competences,
             'form' => $form->createView(),
             ]
@@ -47,8 +50,7 @@ class CompetenceController extends AbstractController
     }
 
 
-  public function valid(Request $request)
-  
+    public function valid(Request $request)
     {
         $competence = new Competence();
         $form = $this->createForm(CompetenceType::class, $competence);
@@ -64,7 +66,9 @@ class CompetenceController extends AbstractController
             return $this->redirectToRoute('app_lucky_number');
         }
     
-        return $this->render('competence/create.html.twig', [
+        return $this->render(
+            'competence/create.html.twig',
+            [
             'entity' => $competence,
             'form' => $form->createView(),
             ]
@@ -74,15 +78,13 @@ class CompetenceController extends AbstractController
 
     public function delete($id)
     {
-        
-       $entityManager = $this->getDoctrine()->getManager();
+        $entityManager = $this->getDoctrine()->getManager();
         $competence = $entityManager->getRepository(Competence::class)->findOneBy(['id' => $id]);
            
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($competence);
-            $entityManager->flush();
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($competence);
+        $entityManager->flush();
             
-            return $this ->redirectToRoute('app_lucky_number');
-        }
+        return $this ->redirectToRoute('app_lucky_number');
     }
-
+}

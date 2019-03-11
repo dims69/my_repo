@@ -27,13 +27,13 @@ class ContactRepository extends ServiceEntityRepository
         ->createQueryBuilder();
         
         $qBuilder ->select('f');
-        $qBuilder ->from ('AppBundle : Formation','f');
+        $qBuilder ->from('AppBundle : Formation', 'f');
         
         $result = $qBuilder->getQuery()->getResult();
         
         return $result;
     }
-    }
+}
 
     // /**
     //  * @return Contact[] Returns an array of Contact objects
@@ -63,4 +63,3 @@ class ContactRepository extends ServiceEntityRepository
         ;
     }
     */
-

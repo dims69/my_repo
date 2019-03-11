@@ -20,19 +20,19 @@ class CompetenceRepository extends ServiceEntityRepository
         parent::__construct($registry, Competence::class);
     }
     public function findAllFormations()
-        {
-            $qBuilder = $this
+    {
+        $qBuilder = $this
             ->getEntityManager()
             ->createQueryBuilder();
             
-            $qBuilder ->select('f');
-            $qBuilder ->from ('AppBundle : Formation','f');
+        $qBuilder ->select('f');
+        $qBuilder ->from('AppBundle : Formation', 'f');
             
-            $result = $qBuilder->getQuery()->getResult();
+        $result = $qBuilder->getQuery()->getResult();
             
-            return $result;
-        }
-        // /**
+        return $result;
+    }
+    // /**
     //  * @return Competence[] Returns an array of Competence objects
     //  */
     /*

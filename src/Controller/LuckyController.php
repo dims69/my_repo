@@ -11,7 +11,6 @@ use App\Entity\Competence;
 
 class LuckyController extends Controller
 {
-   
     public function number()
     {
         $number = random_int(0, 100);
@@ -38,64 +37,56 @@ class LuckyController extends Controller
 
 
 
-public function createFormation()
-
-{
-    $form = new Formation ();
-    $form -> setName('Ma formation');
-    $form -> setName ('name');
-    $form -> setName ('duree');
-    $form -> setName ('lieu');
-    $eManager = $this ->getDoctrine()->getManager();
-    $eManager->persist($form);
-    $eManager->flush();
-    
- }
+    public function createFormation()
+    {
+        $form = new Formation();
+        $form -> setName('Ma formation');
+        $form -> setName('name');
+        $form -> setName('duree');
+        $form -> setName('lieu');
+        $eManager = $this ->getDoctrine()->getManager();
+        $eManager->persist($form);
+        $eManager->flush();
+    }
     
     
-public function createContact()
-
-{
-    $form = new Contact ();
-    $form -> setName('Contact');
-    $form -> setName ('mail');
-    $form -> setName ('telephone');
-    $form -> setName ('site');
-    $eManager = $this ->getDoctrine()->getManager();
-    $eManager->persist($form);
-    $eManager->flush();
-    
- }
+    public function createContact()
+    {
+        $form = new Contact();
+        $form -> setName('Contact');
+        $form -> setName('mail');
+        $form -> setName('telephone');
+        $form -> setName('site');
+        $eManager = $this ->getDoctrine()->getManager();
+        $eManager->persist($form);
+        $eManager->flush();
+    }
     
     
 
 
     
-public function createApropos()
-
-{
-    $form = new Apropos ();
- $form -> setName('Apropos');
-    $form -> setName('description');
-    $eManager = $this ->getDoctrine()->getManager();
-    $eManager->persist($form);
-    $eManager->flush();
-    
- }
+    public function createApropos()
+    {
+        $form = new Apropos();
+        $form -> setName('Apropos');
+        $form -> setName('description');
+        $eManager = $this ->getDoctrine()->getManager();
+        $eManager->persist($form);
+        $eManager->flush();
+    }
 
 
     
-public function createCompetence()
-
-{
-    $form = new Competence ();
-    $form -> setName('Competence');
-    $form -> setName('audiovisuel');
-    $form -> setName('infographie');
-    $form -> setName('communication');
-    $eManager = $this ->getDoctrine()->getManager();
-    $eManager->persist($form);
-    $eManager->flush();
-    
- }
+    public function createCompetence()
+    {
+        $form = new Competence();
+        $form -> setName('Competence');
+        $form -> setName('audiovisuel');
+        $form -> setName('infographie');
+        $form -> setName('communication');
+        $eManager = $this ->getDoctrine()->getManager();
+        $eManager->persist($form);
+        $eManager->flush();
+    }
 }

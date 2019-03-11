@@ -9,8 +9,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Form\ContactType;
 use App\Entity\Contact;
 
-
-
 /**
  * @Route("//competence")
  */
@@ -24,22 +22,26 @@ class ContactController extends AbstractController
         $contact = new Contact();
         $form = $this ->createForm(ContactType::class, $contact);
         
-        return $this -> render ('contact/create.html.twig', [
+        return $this -> render(
+            'contact/create.html.twig',
+            [
             'entity'=> $contact,
             'form' => $form->createView(),
             ]
             );
     }
-        /**
+    /**
      * @Route("/{id}/edit", name="contact_edit", methods={"GET","POST"})
      */
-     public function edit4($id)
+    public function edit4($id)
     {
         $entityManager = $this->getDoctrine()->getManager();
         $contact = $entityManager->getRepository(Contact::class)->findOneBy(['id' => $id]);
         $form = $this->createForm(ContactType::class, $contact);
         
-        return $this->render('contact/create.html.twig', [
+        return $this->render(
+            'contact/create.html.twig',
+            [
             'entity' => $contacts,
             'form' => $form->createView(),
             ]
@@ -47,8 +49,7 @@ class ContactController extends AbstractController
     }
 
 
-  public function valid(Request $request)
-  
+    public function valid(Request $request)
     {
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
@@ -64,25 +65,26 @@ class ContactController extends AbstractController
             return $this->redirectToRoute('app_lucky_number');
         }
     
-        return $this->render('contact/create.html.twig', [
+        return $this->render(
+            'contact/create.html.twig',
+            [
             'entity' => $contact,
             'form' => $form->createView(),
             ]
         );
     }
-/**
-     * @Route("/{id}", name="form_contact_delete", methods={"POST","GET"})
-     */
+    /**
+         * @Route("/{id}", name="form_contact_delete", methods={"POST","GET"})
+         */
     public function delete($id)
     {
-        
-       $entityManager = $this->getDoctrine()->getManager();
+        $entityManager = $this->getDoctrine()->getManager();
         $contact = $entityManager->getRepository(Contact::class)->findOneBy(['id' => $id]);
            
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($contact);
-            $entityManager->flush();
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($contact);
+        $entityManager->flush();
             
-            return $this ->redirectToRoute('app_lucky_number');
-        }
+        return $this ->redirectToRoute('app_lucky_number');
     }
+}

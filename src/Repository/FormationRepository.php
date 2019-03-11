@@ -7,9 +7,6 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 use Doctrine\ORM\EntityRepository;
 
-
-
-
 /**
  * @method Formation|null find($id, $lockMode = null, $lockVersion = null)
  * @method Formation|null findOneBy(array $criteria, array $orderBy = null)
@@ -30,7 +27,7 @@ class FormationRepository extends ServiceEntityRepository
         ->createQueryBuilder();
         
         $qBuilder ->select('f');
-        $qBuilder ->from ('AppBundle : Formation','f');
+        $qBuilder ->from('AppBundle : Formation', 'f');
         
         $result = $qBuilder->getQuery()->getResult();
         
@@ -66,4 +63,3 @@ class FormationRepository extends ServiceEntityRepository
         ;
     }
     */
-

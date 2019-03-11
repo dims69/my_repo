@@ -20,14 +20,14 @@ class AproposRepository extends ServiceEntityRepository
         parent::__construct($registry, Apropos::class);
     }
     
-      public function findAllFormations()
+    public function findAllFormations()
     {
         $qBuilder = $this
         ->getEntityManager()
         ->createQueryBuilder();
         
         $qBuilder ->select('f');
-        $qBuilder ->from ('AppBundle : Formation','f');
+        $qBuilder ->from('AppBundle : Formation', 'f');
         
         $result = $qBuilder->getQuery()->getResult();
         

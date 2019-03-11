@@ -16,7 +16,7 @@ class ContactType extends AbstractType
             ->add('mail')
             ->add('telephone')
             ->add('site')
-            ->add('save', SubmitType::class,[
+            ->add('save', SubmitType::class, [
                 'attr'=> ['class'=>'save'],
                 ])
         ;
