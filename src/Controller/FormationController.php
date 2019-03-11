@@ -10,7 +10,7 @@ use App\Form\FormationType;
 use App\Entity\Formation;
 
 /**
- * @Route("//formation")
+ * @Route("/formation")
  */
 class FormationController extends AbstractController
 {

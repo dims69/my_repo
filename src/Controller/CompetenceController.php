@@ -10,7 +10,7 @@ use App\Form\CompetenceType;
 use App\Entity\Competence;
 
 /**
- * @Route("//competence")
+ * @Route("/competence")
  */
 class CompetenceController extends AbstractController
 {

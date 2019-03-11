@@ -10,7 +10,7 @@ use App\Form\ContactType;
 use App\Entity\Contact;
 
 /**
- * @Route("//competence")
+ * @Route("/competence")
  */
 class ContactController extends AbstractController
 {
