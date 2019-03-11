@@ -64,3 +64,4 @@ form_contact_edit:
 valid_contact:
     path: /contact/valid/
     controller: App\Controller\ContactController::valid
+
