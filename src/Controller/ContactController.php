@@ -28,7 +28,7 @@ class ContactController extends AbstractController
             'entity'=> $contact,
             'form' => $form->createView(),
             ]
-            );
+        );
     }
     /**
      * @Route("/{id}/edit", name="contact_edit", methods={"GET","POST"})

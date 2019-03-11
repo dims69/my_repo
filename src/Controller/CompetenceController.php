@@ -28,7 +28,7 @@ class CompetenceController extends AbstractController
             'entity'=> $competence,
             'form' => $form->createView(),
             ]
-            );
+        );
     }
 
     /**
