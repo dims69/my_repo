@@ -10,35 +10,38 @@
 	<link rel="stylesheet" href="{{ asset('style.css') }}" type="text/css" />
 	<!-- favicon -->
 	<link rel="shortcut icon" href="{{asset('img/favicon.jpg')}}">
-	
-
-
-
-
-
-	
-	<!-- just in case viewer is using Internet Explorer -->
-	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-
 </head>
+
+
+
+
 
 <body>
 	
 	<!-- Header-->
+		<nav>
+			<ul>
+			  <li><a class="nav-item" href="#1">A Propos</a></li>
+			  <li><a class="nav-item" href="#2">Formations</a></li>
+			  <li><a class="nav-item" href="#3">Compétences</a></li>
+			  <li><a class="nav-item" href="#4">Contact</a></li>
+			</ul>
+		</nav>
+	
+	
 	<header>
-		<h1>Olivier Pouchoy</h1>
-		<p>Etudiant en Multimédia et Internet</p>
+		<div class="h-background">
+			<div class="middle">
+				<h1>Olivier Pouchoy</h1>
+				<p>Etudiant en Multimédia et Internet</p>
+			</div>
+			
+
+		</div>
+
 	</header>
 	
 
-	<div class="container">
-		
-		<p class="flotte">
-		
-		<div class="image">
-				<img src="img/Olivier_icone" height = "400" width =" 400" >
-
-</div>
 		
 		
 
@@ -46,7 +49,16 @@
   
       
 		<!-- Introduction-->
-		<section class="center">
+<article id="sec">
+		<section  class="center">
+				<div class="container" id="1" >
+		
+					<p class="flotte">
+					
+					<div class="image">
+							<img src="{{asset('img/Olivier_icone')}}" height = "400" width =" 400" >
+			
+					</div>
 			<h1>Bienvenue sur mon CV !</h1>
 					{% for apropo in apropos %}
         			<article>
@@ -75,7 +87,7 @@
 		
 	
 	   <section> 
-			<div class="sectionTitle">
+			<div class="sectionTitle" id="2">
 				<h1>Formations</h1>
 			</div>
 			<div class="sectionContent">
@@ -104,7 +116,7 @@
 			
 		<!--Experience Tables-->
 		 
-			<div class="sectionTitle">
+			<div class="sectionTitle"  id="3">
 				<h1>Compétences</h1>
 			</div>
 		
@@ -166,8 +178,8 @@
 		<section>
 			<!--List of skills-->
 			<div class="row">
-				<div class="grid-2">
-					<h1><b>Contact</b></h1>
+				<div class="grid-2"  id="4">
+					<h1>Contact</h1>
 					<ul>
 						{% for contact in contacts %}
 						<article>
@@ -179,7 +191,7 @@
 								<a href="{{ path('form_contact',{'id':contact.getId()}) }}"target="_blank"><button type="button">Créer</a>
 								<a href="{{ path('contact_edit',{'id':contact.getId()}) }}" target="_blank"><button type="button">Modifier</buttons></a>
 								<a href="{{ path('form_contact_delete',{'id':contact.getId()}) }}" target="_blank"><button type="button">Supprimer</buttons></a>
-						  {% endif %}
+						 {% endif %}
 						</ul>
 						</article>
 					{% endfor %}
@@ -191,6 +203,55 @@
 		</footer>
 		
 	</div><!-- End Container -->
+	</article>
+	
+	
+	
+	
+<script type="text/javascript">
+
+var el = document.querySelectorAll('nav ul a');
+var parralax = document.querySelector('header .h-background');
+var middle = document.querySelector('header .middle');
+
+
+
+console.log(parralax);
+console.log("==========");
+
+
+
+window.addEventListener("scroll", function (event) {
+    var scroll = this.scrollY;
+    
+    for (var i = 0; i < el.length;i++){
+    	console.log(scroll);
+	    if (scroll > 385){
+	        el[i].style.webkitTextStroke = "1px #000";
+	    }
+	    else{ 
+	        el[i].style.webkitTextStroke = "1px #fff";
+	    }
+	}
+    
+    if (scroll < 500){
+	    var parralaxE =  scroll/2;
+	    var parralaxO= - (scroll/2)
+	    middle.style.top =  (parralaxO/2) + "px";
+	    middle.style.bottom = parralaxE + "px";
+    }
+    
+    if(scroll> 200 ) {
+    	parralax.style.backgroundSize =(parralaxE*window.innerWidth)+"px"; 
+    }
+
+
+
+});
+
+</script>
 	
 </body>
 </html>
+
+
