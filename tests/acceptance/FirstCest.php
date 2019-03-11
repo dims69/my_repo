@@ -10,5 +10,9 @@ class FirstCest
     // tests
     public function tryToTest(AcceptanceTester $I)
     {
+         $I->amOnPage('/');
+         $I->see('Olivier');
     }
+
+    
 }
