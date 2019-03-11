@@ -53,7 +53,7 @@ Appuyer sur le bouton se connecter
 * Identifiant :  admin
 * Mot de passe : password
 
-![Alt text](/readimg/admin.PNG "Connection")
+![Alt text](/readimg/connexion.PNG "Connection")
 
 ## Auteur
 
